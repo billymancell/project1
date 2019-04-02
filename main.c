@@ -1,8 +1,39 @@
 #include <stdio.h>
 
-int main() {
-  printf("hello world");
-  
-  return 0;
+int main () {
+    
+    int message[26], ch;
+	int i, key;
+	
+	printf("Enter a message to encrypt:\n");
+	scanf("%d", &message);
+	printf("Enter key:\n");
+	scanf("%d", &key);
+	
+	for(i = 0; message[i] != '\0'; i++){
+		ch = message[i];
+		
+		if(ch >= 'a' && ch <= 'z'){
+			ch = ch + key;
+			
+			if(ch > 'z'){
+				ch = ch - 'z' + 'a' - 1;
+			}
+			
+			message[i] = ch;
+		}
+		else if(ch >= 'A' && ch <= 'Z'){
+			ch = ch + key;
+			
+			if(ch > 'Z'){
+				ch = ch - 'Z' + 'A' - 1;
+			}
+			
+			message[i] = ch;
+		}
+	}
+	
+	printf("Encrypted message: %d", message);
 
+  return 0;
 }
