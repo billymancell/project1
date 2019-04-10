@@ -7,7 +7,7 @@ int main () {
 char caescipher [50]; //declaring array
 int key; //declaring the key/shifter
     printf("enter text(capitals) to be encrypted:\n");
-    scanf("%s", &caescipher);
+    scanf("%s", caescipher);
     printf("enter key value; 1-10:\n");
     scanf("%d", &key);
     
@@ -19,9 +19,13 @@ void encryp (char caescipher[], int key) {
     int i= 0;
     
     while(caescipher[i] != '\0') {
-        if ((caescipher[i] + key) >= 65 && (caescipher[i] + key) <= 90) {
-            
+        if (caescipher[i] + key >= 65 && caescipher[i] + key <= 90) {
+            caescipher[i] += key;   
         }
-        
+        else {
+            caescipher[i] += (key- 25);
+        }
+        i++;
     }
+    printf("%s", caescipher);
 }
