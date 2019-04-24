@@ -1,31 +1,30 @@
 #include <stdio.h>
 
-void encryp (char caescipher[], int key); //function prototype
-
 int main () {
+    char message[102], ch;
+    int i, key;
     
-char caescipher [50]; //declaring array
-int key; //declaring the key/shifter
-    printf("enter text(capitals) to be encrypted:\n");
-    scanf("%s", caescipher);
-    printf("enter key value; 1-10:\n");
+    printf("enter a message to encrypt\n");
+    scanf("%s", message);
+    
+    printf("enter key\n");
     scanf("%d", &key);
     
-    encryp (caescipher, key);   
-return 0;
+        for(i = 0; message[i] != '\0'; ++i) {
+            ch = message[i];
+            
+         if(ch >= 'a' && ch <= 'z') {
+             ch = ch + key;
+         }
+            
+          if(ch > 'z') {
+              ch = ch - 'z'+ 'a' - 1;
+          }
+            message[i] = ch; 
+        }
+        
+        printf("encrypted messsaaqge: %s", message);
+        
+        return 0;
 }
 
-void encryp (char caescipher[], int key) {
-    int i= 0;
-    
-    while(caescipher[i] != '\0') {
-        if (caescipher[i] + key >= 65 && caescipher[i] + key <= 90) {
-            caescipher[i] += key;   
-        }
-        else {
-            caescipher[i] += (key- 25);
-        }
-        i++;
-    }
-    printf("%s", caescipher);
-}
