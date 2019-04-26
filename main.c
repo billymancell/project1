@@ -4,11 +4,20 @@ void decryp(char *message, int n);
 void encryp(char *message, int n);
 
 int main() {
-
-// switch 
+    int menu;
+    
+    printf("menu");
+    scanf("%d", menu);
+   switch(menu)  {
+   case 1:
    void encryp(char *message, int n) ; 
+   break;
+   case 2:
    void decryp(char *message, int n) ;
-        return 0;
+   break;
+}
+
+return 0;
 }
 
 
@@ -17,8 +26,8 @@ void encryp(char *message, int n)  {
 
 	char current;
 	int i;
-	//char message[1024];
-    //int n = 4;
+	char message[1024];
+    int n;
    printf("enter a message to encrypt (capital letters only) : \n");
    scanf("%[^\n]s", message);
     
@@ -31,7 +40,7 @@ void encryp(char *message, int n)  {
 		if (current >= 'A' && current <= 'Z') {
 		    //Shifts all capital letters.
 			//current = ((current-'A')+n)%26+'A';
-			current = current + n;
+			current = (current + n)%26;
 			
 			if(current > 'Z') {
 			    current = current - 'Z' + 'A' - 1;
@@ -40,7 +49,7 @@ void encryp(char *message, int n)  {
 		}
 		if (current >= 'a' && current <= 'z') {
 		    //Shifts all lowercase letters.
-			current = ((current-'a')+n)%26+'a';
+			current = ((current -'a')+n)%26+'a';
 			message[i] = current;
         }
         printf("encrypted message: %s", message);
