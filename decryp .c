@@ -1,9 +1,11 @@
 #include <stdio.h>
 
 
-void decryption()
-{
-	char message[100], ch;
+void decryp() {
+    
+    
+	char message[100] = "SJSFMPCRM";
+	char ch;
 	int i, key;
 	
 	printf("Enter a message to decrypt: ");
