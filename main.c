@@ -1,97 +1,29 @@
 #include <stdio.h>
 
-void decryp(char *message, int n);
-void encryp(char *message, int n);
-
-int main() {
-    int menu;
+   
     
-    printf("menu");
-    scanf("%d", menu);
-   switch(menu)  {
-   case 1:
-   void encryp(char *message, int n) ; 
-   break;
-   case 2:
-   void decryp(char *message, int n) ;
-   break;
-}
-
-return 0;
-}
-
-
-void encryp(char *message, int n)  {
-	
-
-	char current;
-	int i;
-	char message[1024];
-    int n;
-   printf("enter a message to encrypt (capital letters only) : \n");
-   scanf("%[^\n]s", message);
     
-   printf("enter key (number between 1-10) : \n");
-   scanf("%d", &n);
+    int main () {
+      
+    float myArray[3][3] = { { 0.1, 0.2, 0.3 }, { 1.1, 1.2, 1.3 }, { 2.1,2.2, 2.3 } };
+    float sum = 0;
+    int x, y;
+    for(x=0;x<3;x++) {
+        for(y=0;y<3;y++) {
+            sum = sum + myArray[x][y];
+            printf("myArray[%d][%d], %f sum = %f\n", x, y, myArray[x][y], sum);
 
-	for (i = 0; message[i] != '\0'; ++i) {
-	    //Scans each letter of the message.
-		current = message[i];
-		if (current >= 'A' && current <= 'Z') {
-		    //Shifts all capital letters.
-			//current = ((current-'A')+n)%26+'A';
-			current = (current + n)%26;
-			
-			if(current > 'Z') {
-			    current = current - 'Z' + 'A' - 1;
-			}
-			message[i] = current;
-		}
-		if (current >= 'a' && current <= 'z') {
-		    //Shifts all lowercase letters.
-			current = ((current -'a')+n)%26+'a';
-			message[i] = current;
         }
-        printf("encrypted message: %s", message);
-    }  
-    return;
-}
-    void decryp(char *message, int n) {
+
+        }
+    sum = sum/9;
+    printf ("mean = %f", sum);
     
-    
-	//char message[1024];
-	char ch;
-	int i, key;
-	
-	printf("Enter a message to decrypt: ");
-	scanf ("%s", message);
-	printf("Enter key: ");
-	scanf("%d", &key);
-	
-	for(i = 0; message[i] != '\0'; ++i){
-		ch = message[i];
-		
-		if(ch >= 'a' && ch <= 'z'){
-			ch = ch - key;
-			
-			if(ch < 'a'){
-				ch = ch + 'z' - 'a' + 1;
-			}
-			
-			message[i] = ch;
-		}
-		else if(ch >= 'A' && ch <= 'Z'){
-			ch = ch - key;
-			
-			if(ch < 'A'){
-				ch = ch + 'Z' - 'A' + 1;
-			}
-			
-			message[i] = ch;
-		}
-	}
-	
-	printf("Decrypted message: %s", message);
-	
-	return;
+    return 0; 
 }
+
+
+
+
+    
+ 
